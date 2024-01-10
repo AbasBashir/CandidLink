@@ -1,3 +1,7 @@
+<?php 
+   require_once "CRUD-functions.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +13,5 @@
 <body>
 
     <?php include_once 'header.php' ?>
-    
 </body>
 </html>

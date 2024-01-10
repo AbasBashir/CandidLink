@@ -15,7 +15,7 @@ body{
     font-family: 'poppins', sans-serif;
 }
 
-h1,h2,h3,h4,h5{
+h1,h2,h3,h4{
     font-size: 3.5rem;
     margin-bottom: 30px;
 }
@@ -35,7 +35,8 @@ header{
     justify-content: space-around;
     align-items: center;
     padding: 15px 20px;
-    background-color: #f9f9f9;;
+    background-color: #fff;
+    box-shadow: 0 1px 10px 0 #000000;
 }
 
 header .header-content{
@@ -83,7 +84,7 @@ a:hover::before{
     padding: 30px;
 }
 
-.main form{
+.main .common-form{
     background-color: rgba(0, 0, 0, 0.785);
     border: 2px solid #000000;
     box-shadow: 5px 2px 15px 2px rgb(41, 41, 41);
@@ -97,23 +98,22 @@ a:hover::before{
     justify-content: flex-start;
     align-items: flex-start;
     padding: 30px;
-    gap: 10px;
 }
 
-.main form input{
+.main .common-form input{
     padding: 12px 15px;
     margin-bottom: 18px;
     font-size: 1.8rem;
     width: 100%;
 }
 
-.main form input::placeholder{
+.main .common-form input::placeholder{
     font-size: 1.8rem;
 }
 
-.main form input[type="submit"]{
+.main .common-form input[type="submit"]{
     position: relative;
-    top: 8px;
+    top: 10px;
     display: block;
     margin: auto;
     background-color: transparent;
@@ -127,11 +127,154 @@ a:hover::before{
     border-radius: 15px;
 }
 
-.main form input[type="submit"]:hover{
+.main .common-form input[type="submit"]:hover{
     color: rgb(255, 255, 255);
     border: 2px solid rgb(255, 255, 255);
     background-color: #323232ca;
     box-shadow: 5px 2px 15px 2px rgb(255, 255, 255);
     border-radius: 25px;
     transition: 300ms;
+}
+
+.email-exists, .error{
+    color: red;
+    position: relative;
+    top: -10px;
+    font-size: 1.5rem;
+    display: none;
+}
+
+.error{
+    top: -12px;
+    text-align: center;
+    font-size: 2rem;
+    width: 100%;
+}
+
+#pop-up{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+#pop-up > .background{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2.5rem;
+    width: 450px;
+    height: 220px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f4f4f4;
+    padding: 3px;
+    z-index: 2;
+}
+
+#pop-up > .content{
+    color: red;
+    font-size: 3rem;
+}
+
+.profile-wrapper{
+    /* border: 2px solid blue; */
+    height: 600px;
+    font-size: 2rem;
+}
+
+.profile-wrapper .profile div img{
+    width: 120px;
+    height: 120px;
+}
+
+.profile-wrapper .profile div img{
+    width: 100px;
+    height: 100px;
+}
+
+.profile-wrapper .btns{
+    display: flex;
+    width: 40%;
+    margin: auto;
+    margin-top: 20px;
+    justify-content: center;
+    gap: 50px;
+}
+
+button{
+    background-color: transparent;
+    background-color: #323232;
+    border: 2px solid #000000;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    width: 100%;
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out; 
+}
+
+.profile-wrapper .btns a button:hover{
+    transform: translateY(-5px);
+    transition: 0.3s ease-in-out; 
+}
+
+.profile .post{
+    margin: 5px;
+    margin-top: 20px;
+}
+
+h5{
+    text-align: left;
+    font-size: 2rem;
+    padding-bottom: 10px;
+}
+
+
+#profile-form{
+    width: 100%;
+}
+
+#profile-form textarea{
+    border: 2px solid blue;
+    border: 2px solid #323232;
+    border-radius: 10px;
+    padding: 30px;
+    font-size: 2rem;
+    width: 100%;
+    resize: none;
+}
+
+#profile-form .post-btn{
+    width: 10%;
+    margin-top: 10px;
+    padding: 9px 4px;
+    margin-left: 10px;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;    
+}
+
+#profile-form .post-btn:hover{
+    background-color: #fff;
+    color: #000000;
+    transition: 0.3s ease-in-out; 
+}
+
+hr{
+    height: 2px;
+    background-color: #000000;
+    margin-top: 30px;
 }

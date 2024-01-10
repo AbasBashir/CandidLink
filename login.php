@@ -1,3 +1,26 @@
+<?php
+        require "CRUD-functions.php";
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+        {
+            $cc = new users();
+            $catch = $cc->login();
+
+            if (is_string($catch)) {
+
+            echo "<script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        document.querySelector('.main .error').style.display = 'block';
+                        document.querySelector('.main .error').innerHTML = '$catch';
+                    });
+                </script>";
+
+            }
+            
+        }
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +34,9 @@
     
     <div class="main">
         <h2> Login </h2>
-        <form method="post">
-
+        <form class="common-form" method="post">
+            
+            <?php echo "<span class='error'></span>";?>
             Email: <input type="email" name="email" placeholder="Example@example.com" required>
             Password: <input type="password" name="password" placeholder="Password" required>
                     <input type="submit">
