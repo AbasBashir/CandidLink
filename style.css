@@ -60,7 +60,7 @@ header .header-content{
     font-weight: 600;
 }
 
-a::before{
+.header-content ul li a::before{
     content: "";
     position: absolute;
     display: block;
@@ -72,7 +72,7 @@ a::before{
     transition: 0.3s ease-in-out; 
 }
 
-a:hover::before{
+.header-content ul li a:hover::before{
     width: 100%;
     transition: 0.3s ease-in-out;
 }
@@ -186,19 +186,12 @@ a:hover::before{
 }
 
 .profile-wrapper{
-    /* border: 2px solid blue; */
-    height: 600px;
     font-size: 2rem;
 }
 
 .profile-wrapper .profile div img{
-    width: 120px;
-    height: 120px;
-}
-
-.profile-wrapper .profile div img{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
 
 .profile-wrapper .btns{
@@ -246,7 +239,6 @@ h5{
 }
 
 #profile-form textarea{
-    border: 2px solid blue;
     border: 2px solid #323232;
     border-radius: 10px;
     padding: 30px;
@@ -277,4 +269,87 @@ hr{
     height: 2px;
     background-color: #000000;
     margin-top: 30px;
+}
+
+.edit-wrapper .edit-profile .edit-form{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.785);
+    border: 2px solid #000000;
+    box-shadow: none;
+    padding-bottom: 80px;
+}
+
+.edit-wrapper .edit-profile .edit-form .edit-btns{
+    position: relative;
+    margin: unset;
+    justify-content: unset;
+    width: 100%;
+    top: 40px;
+}
+
+.edit-wrapper .edit-profile .edit-form .delete-btn{
+    justify-content: center;
+}
+
+.edit-wrapper .edit-profile .edit-form #cancel-btn-wrapper{
+    width: 20%;
+}
+
+.edit-wrapper .edit-profile .edit-form #cancel-btn-wrapper .cancel:hover{
+    background-color: #fff;
+    color: #000000;
+}
+
+.edit-wrapper .edit-profile .edit-form .save-btn{
+    width: 20%;
+    transition: 0.3s ease-in-out; 
+}
+
+.edit-wrapper .edit-profile .edit-form .save-btn:hover{
+    background-color: #fff;
+    color: #000000;
+    transform: translateY(-5px);
+    transition: 0.3s ease-in-out; 
+}
+
+
+.edit-wrapper .edit-profile .edit-form .main-label{
+    width: 100%;
+}
+
+.edit-wrapper .edit-profile .edit-form .main-label .label{
+    text-align: left;
+    margin-bottom: 10px;
+    width: 95%;
+    padding: 2px;
+    gap: 5px;
+}
+
+.edit-wrapper .edit-profile .edit-form .delete-label div:nth-child(1){
+    margin-bottom: 8px;
+}
+
+.edit-wrapper .edit-profile .edit-form .main-label .label input{
+    font-size: 2rem;
+    margin-bottom: 0;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+
+.edit-wrapper .edit-profile .edit-form #edit-profile{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border: 2px solid #fff;
+}
+
+.edit-wrapper .edit-profile {
+    font-size: 2rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
 }
