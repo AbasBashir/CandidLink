@@ -1,5 +1,32 @@
 <?php 
    require_once "CRUD-functions.php";
+
+
+
+
+
+   if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['username'])) 
+    {
+        //profile edit 
+        $cc = new users();
+
+        $check = $cc->editProfile();
+
+        if (is_string($check)) {
+
+            echo "<script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        document.querySelector('.profile-error').style.display = 'block';
+                        document.querySelector('.profile-error').innerHTML = '$check';
+                    });
+                </script>";
+
+        }else {
+            header("Location: profile.php");
+            die;
+        }
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -26,11 +53,11 @@
                             <!-- The part that says enctype="multipart/form-data" this is what allows us to upload an image -->
                             <form method="post" enctype="multipart/form-data" class="common-form edit-form">
                             
-                                <img id="edit-profile" src="<?php echo $_SESSION['info']['image'] ?>">
-
+                                <img id="edit-profile" src="<?php echo $_SESSION['info']['image'] ?>"> 
+        
                                 <div class="main-label">
-                                    <div class="label img-file">
-                                        Image: <input type="file" name="image">
+                                    <div class="label img-file"> 
+                                        Image: <input type="file" name="image"><?php echo "<span class='profile-error'></span>";?>
                                     </div>
                                     <div class="label">
                                         Name: <input value="<?php echo $_SESSION['info']['username'] ?>" type="text" name="username" placeholder="Username" required>

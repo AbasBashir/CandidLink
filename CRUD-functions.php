@@ -160,6 +160,91 @@
             }
     
         }
+
+        function editProfile(){
+
+            $image_added = false;
+
+            $folder = 'uploads/';
+
+            if (!file_exists($folder)) {
+                
+                mkdir($folder, 0777, true);
+
+            }
+
+            $image = $folder . $_FILES['image']['name'];
+            $uploadStatus = move_uploaded_file($_FILES['image']['tmp_name'], $image);
+
+            if ($uploadStatus === true) {
+                
+                $image_added = true;
+                
+            }
+
+            $username = $this->validate($_POST['username']);
+            $email = $this->validate($_POST['email']);
+            $id = $this->validate($_SESSION['info']['id']);
+            $password = $_POST['password'];
+
+
+            // Hash the password
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+
+    
+            try {
+                    if ($_SESSION['info']['email'] != $email) {
+                        throw new Exception("Wrong Email");
+                    }
+
+                    if ($image_added == true) {
+
+                        if (file_exists($_SESSION['info']['image'])) {
+                
+                            // Delete a previous profile image
+                            unlink($_SESSION['info']['image']);
+                            
+                        }
+                        
+                        $query = "update users set username = :username, password = :hashedPassword, image = '$image' where id = :id limit 1";
+                    }else{
+                        $query = "update users set username = :username, password = :hashedPassword where id = :id limit 1";
+                    }
+    
+                    $stmt = $this->conn->prepare($query);
+                    $stmt->bindParam(':username', $username);
+                    $stmt->bindParam(':hashedPassword', $hashedPassword);
+                    $stmt->bindParam(':id', $id);
+                    $stmt->execute();
+    
+                    $read = "select * from users where id = :id limit 1";
+                    $stmt = $this->conn->prepare($read);
+                    $stmt->bindParam(':id', $id);
+                    $stmt->execute();
+    
+                    // here we are going to fetch the row from the session
+                    if ($stmt->rowCount() > 0) {
+                    
+                        $row =  $stmt->fetch(PDO::FETCH_ASSOC);
+
+                        // update the session with the new information
+                        $_SESSION['info'] = $row;
+
+                        return true;
+            
+                    }else{
+
+                        throw new Exception("Failed to update profile. Please try again later.");
+                    }
+
+                    throw new Exception("Failed to execute update profile");
+    
+                } catch (Exception $th) {
+        
+                    return $th->getMessage();
+                }
+        }
     }
 
 ?>
