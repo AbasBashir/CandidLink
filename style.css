@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    border: none;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'poppins', sans-serif;
+}
+
+h1,h2,h3,h4,h5{
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+}
+
+a{
+    font-size: 2rem;
+    color: #000000;
+}
+
+header .brand-logo a img{
+    width: 220px;
+    height: 30px;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f9f9f9;;
+}
+
+header .header-content{
+    display: flex;
+    width: 100%;
+    max-width: 460px;
+    justify-content: space-around;
+    margin-right: 15px;
+    align-items: center;
+}
+
+.header-content ul li{
+    width: 100%;
+    padding: 12px 16px;
+}
+
+.header-content ul li a{
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    font-weight: 600;
+}
+
+a::before{
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #000000;
+    transition: 0.3s ease-in-out; 
+}
+
+a:hover::before{
+    width: 100%;
+    transition: 0.3s ease-in-out;
+}
+
+.main{
+    width: 60%;
+    margin: 3% auto;
+    text-align: center;
+    padding: 30px;
+}
+
+.main form{
+    background-color: rgba(0, 0, 0, 0.785);
+    border: 2px solid #000000;
+    box-shadow: 5px 2px 15px 2px rgb(41, 41, 41);
+    color: #fff;
+    font-size: 2rem;
+    border-radius: 15px;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 10px;
+}
+
+.main form input{
+    padding: 12px 15px;
+    margin-bottom: 18px;
+    font-size: 1.8rem;
+    width: 100%;
+}
+
+.main form input::placeholder{
+    font-size: 1.8rem;
+}
+
+.main form input[type="submit"]{
+    position: relative;
+    top: 8px;
+    display: block;
+    margin: auto;
+    background-color: transparent;
+    border: 2px solid #000000;
+    color: #fff;
+    font-size: 1.6rem;
+    width: 45%;
+    text-align: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.main form input[type="submit"]:hover{
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    background-color: #323232ca;
+    box-shadow: 5px 2px 15px 2px rgb(255, 255, 255);
+    border-radius: 25px;
+    transition: 300ms;
+}
