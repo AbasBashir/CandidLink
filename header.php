@@ -7,11 +7,9 @@
 
     <div class="header-content">
         <ul><li><a href="index.php">Home</a></li></ul>
-        <?php if (!empty($_SESSION['info'])) {?>
-
+        <?php if (isset($_SESSION['info']['id'])) {?>
             <ul><li><a href="profile.php">Profile</a></li></ul>
             <ul><li><a href="logout.php">Logout</a></li></ul>
-
         <?php } else {?>
 
             <ul><li><a href="login.php">Login</a></li></ul>
